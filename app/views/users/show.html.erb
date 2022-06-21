@@ -1,0 +1,22 @@
+<% if flash.any? %>
+  <% flash.each do |type, message| %>
+    <div>
+      <%= message %>
+    </div>
+  <% end %>
+  <br>
+<% end %>
+
+<h1>User: <%= @user.username %></h1>
+
+<p>Email: <%= @user.email %></p>
+
+<ul>
+  <li><%= link_to "Edit User", edit_user_path(@user) %></li>
+  <li><%= link_to "Delete User", @user, data: {
+    turbo_method: :delete,
+    turbo_confirm: "Are you sure?"
+  } %></li>
+  <li><%= link_to "Back to Index", users_path %></li>
+</ul>
+

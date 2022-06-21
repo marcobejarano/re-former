@@ -1,0 +1,33 @@
+<%= form_with model: user do |form| %>
+  <% if flash.any? %>
+    <% flash.each do |type, message| %>
+      <div>
+        <%= message %>
+      </div>
+    <% end %>
+    <br>
+  <% end %>
+  <div>
+    <%= form.label "Username:" %><br>
+    <%= form.text_field :username, placeholder: "Username" %>
+    <% user.errors.full_messages_for(:username).each do |message|  %>
+      <div><%= message %></div>
+    <% end %><br><br>
+  </div>
+  <div>
+    <%= form.label "Email:" %><br>
+    <%= form.email_field :email, placeholder: "user@example.com" %>
+    <% user.errors.full_messages_for(:email).each do |message| %>
+      <div><%= message %></div>
+    <% end %><br><br>
+  </div>
+  <div>
+    <%= form.label "Password:" %><br>
+    <%= form.password_field :password, placeholder: "secret" %>
+    <% user.errors.full_messages_for(:password).each do |message| %>
+      <div><%= message %></div>
+    <% end %><br><br>
+  </div>
+  
+  <%= form.submit "Create" %>
+<% end %> 

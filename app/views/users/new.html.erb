@@ -1,0 +1,19 @@
+<%
+=begin%>
+ <h1>New User Form</h1>
+<form action="/users" method="post" accept-charset="UTF-8">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+  <label for="username">Username:</label><br>
+  <input type="text" id="username" name="user[username]" placeholder="Username"><br><br>
+  <label for="email">Email:</label><br>
+  <input type="email" id="email" name="user[email]" placeholder="user@example.com"><br><br>
+  <label for="password">Password:</label><br>
+  <input type="password" id="password" name="user[password]" placeholder="secret"><br><br>
+  <input type="submit" value="Create">
+</form> 
+<%
+=end%>
+
+<h1>New User Form</h1>
+
+<%= render "form", user: @user %>
